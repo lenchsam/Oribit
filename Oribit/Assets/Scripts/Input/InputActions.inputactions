@@ -1,0 +1,34 @@
+{
+    "name": "InputActions",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "a5c2fd79-985f-4522-a45e-2cb275b38951",
+            "actions": [
+                {
+                    "name": "Touch The Screen",
+                    "type": "Button",
+                    "id": "24b0d0ea-e22b-40b3-9ddc-e350eca39a0e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f9ccedeb-ab8d-4fc0-a3c4-1e8881393aac",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch The Screen",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
