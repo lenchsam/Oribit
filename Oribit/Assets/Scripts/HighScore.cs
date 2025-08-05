@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class HighScore : MonoBehaviour
 {
-    [SerializeField] private Health _playerHealth;
-
     [SerializeField] private TMPro.TextMeshProUGUI _currentScoreText;
     [SerializeField] private float _countingSpeed = 0.1f;
 
@@ -16,7 +14,6 @@ public class HighScore : MonoBehaviour
     void Start()
     {
         _currentScoreText.text = _currentScore.ToString();
-        _playerHealth.OnDeath.AddListener(StopCounting);
         InvokeRepeating("Count", 0f, _countingSpeed);
     }
 
@@ -28,7 +25,8 @@ public class HighScore : MonoBehaviour
             _currentScoreText.text = _currentScore.ToString();
         }
     }
-    void StopCounting()
+    //called on the death event on player health
+    public void StopCounting()
     {
         _isCounting = false;
         if (_currentScore > _highScore)
@@ -40,6 +38,14 @@ public class HighScore : MonoBehaviour
         {
             Debug.Log($"Final score: {_currentScore}");
         }
+    }
+
+    //called on the play game event on game manager
+    public void OnGameRestart()
+    {
+        _isCounting = true;
+        _currentScore = 0;
+        _currentScoreText.text = _currentScore.ToString();
     }
 
 

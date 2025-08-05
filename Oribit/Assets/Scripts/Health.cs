@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -35,6 +36,18 @@ public class Health : MonoBehaviour
         Debug.Log($"{gameObject.name} has died.");
         OnDeath.Invoke();
 
-        Destroy(gameObject);
+        if (_collider != null)
+        {
+            _collider.enabled = false;
+        }
+        gameObject.SetActive(false);
+
+        //Destroy(gameObject);
+    }
+    public void OnStart()
+    {
+        _collider.enabled = true;
+        _currentHealth = _maxHealth;
+        gameObject.SetActive(true);
     }
 }

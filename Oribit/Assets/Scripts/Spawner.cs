@@ -25,6 +25,14 @@ public class Spawner : MonoBehaviour
             _spawnPoint.position.z
         );
     }
+    public void StopSpawning()
+    {
+        CancelInvoke("SpawnEnemy");
+    }
+    public void OnGameRestart()
+    {
+        InvokeRepeating("SpawnEnemy", 0f, _spawnSpeed);
+    }
 
 
 }
