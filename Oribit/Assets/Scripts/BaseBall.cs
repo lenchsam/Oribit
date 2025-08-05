@@ -10,6 +10,11 @@ public class BaseBall : MonoBehaviour
         _speed += Random.Range(-_speedRandomness, _speedRandomness);
     }
 
+    void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
+
     private void Update()
     {
         //move the enemy ball downwards
