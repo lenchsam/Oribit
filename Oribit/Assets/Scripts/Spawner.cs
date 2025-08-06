@@ -7,10 +7,15 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float _spawnSpeed = 0.2f;
     [SerializeField] private byte _spawnRadius = 5;
 
+    [SerializeField] private ObjectPooler _objectPooler;
+
     public void SpawnEnemy()
     {
         Vector3 spawnPosition = RandomPosition();
-        Instantiate(_prefabToSpawn, spawnPosition, Quaternion.identity);
+
+        // Use the object pooler to get an instance of the prefab
+        GameObject enemy = _objectPooler.GetGameObjectFromPool(BallType.Normal);
+        enemy.transform.position = spawnPosition;
     }
     Vector3 RandomPosition()
     {
