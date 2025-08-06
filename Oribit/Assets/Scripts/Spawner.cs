@@ -7,11 +7,6 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float _spawnSpeed = 0.2f;
     [SerializeField] private byte _spawnRadius = 5;
 
-    public void Start()
-    {
-        Application.targetFrameRate = 60;
-        InvokeRepeating("SpawnEnemy", 0f, _spawnSpeed);
-    }
     public void SpawnEnemy()
     {
         Vector3 spawnPosition = RandomPosition();

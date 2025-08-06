@@ -6,7 +6,7 @@ public class HighScore : MonoBehaviour
     [SerializeField] private float _countingSpeed = 0.1f;
 
     private int _currentScore = 0;
-    private bool _isCounting = true;
+    private bool _isCounting = false;
 
     [SerializeField] private int _highScore = 0;
 

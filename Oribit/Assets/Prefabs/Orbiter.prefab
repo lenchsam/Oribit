@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6289975988006271556}
   - component: {fileID: 7781838885240594703}
   - component: {fileID: 8252328221251123013}
-  - component: {fileID: 8886492187085775347}
   - component: {fileID: 9010443472474941154}
   - component: {fileID: 3415524635559479849}
   - component: {fileID: 8178591887707911449}
@@ -106,52 +105,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _orbitingTarget: {fileID: 0}
   _orbitSpeed: 150
---- !u!114 &8886492187085775347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 992931778238000352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 28968aa756aa2f14e9e4e60bdf31cb8b, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8252328221251123013}
-        m_TargetAssemblyTypeName: Orbit, Assembly-CSharp
-        m_MethodName: ChangeOrbitDirection
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 24b0d0ea-e22b-40b3-9ddc-e350eca39a0e
-    m_ActionName: 'Player/Touch The Screen[/Device Simulator Touchscreen/press]'
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!114 &9010443472474941154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,6 +119,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 100
   _collider: {fileID: 3415524635559479849}
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!58 &3415524635559479849
 CircleCollider2D:
   m_ObjectHideFlags: 0

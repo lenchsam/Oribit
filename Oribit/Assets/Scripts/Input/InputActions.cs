@@ -35,6 +35,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PointerLocation"",
+                    ""type"": ""Value"",
+                    ""id"": ""bada19a0-a07d-4242-8113-7437b520ad69"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -48,6 +57,28 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Touch The Screen"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""449a8685-0b5c-4602-be74-e1efb8e6d6eb"",
+                    ""path"": ""<Pointer>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PointerLocation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8f9fcda9-a6aa-4173-8674-33da71da1608"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PointerLocation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -57,6 +88,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_TouchTheScreen = m_Player.FindAction("Touch The Screen", throwIfNotFound: true);
+        m_Player_PointerLocation = m_Player.FindAction("PointerLocation", throwIfNotFound: true);
     }
 
     ~@InputActions()
@@ -124,11 +156,13 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_TouchTheScreen;
+    private readonly InputAction m_Player_PointerLocation;
     public struct PlayerActions
     {
         private @InputActions m_Wrapper;
         public PlayerActions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @TouchTheScreen => m_Wrapper.m_Player_TouchTheScreen;
+        public InputAction @PointerLocation => m_Wrapper.m_Player_PointerLocation;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -141,6 +175,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @TouchTheScreen.started += instance.OnTouchTheScreen;
             @TouchTheScreen.performed += instance.OnTouchTheScreen;
             @TouchTheScreen.canceled += instance.OnTouchTheScreen;
+            @PointerLocation.started += instance.OnPointerLocation;
+            @PointerLocation.performed += instance.OnPointerLocation;
+            @PointerLocation.canceled += instance.OnPointerLocation;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -148,6 +185,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @TouchTheScreen.started -= instance.OnTouchTheScreen;
             @TouchTheScreen.performed -= instance.OnTouchTheScreen;
             @TouchTheScreen.canceled -= instance.OnTouchTheScreen;
+            @PointerLocation.started -= instance.OnPointerLocation;
+            @PointerLocation.performed -= instance.OnPointerLocation;
+            @PointerLocation.canceled -= instance.OnPointerLocation;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -168,5 +208,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnTouchTheScreen(InputAction.CallbackContext context);
+        void OnPointerLocation(InputAction.CallbackContext context);
     }
 }
