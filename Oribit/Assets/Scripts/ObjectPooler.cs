@@ -53,7 +53,7 @@ public class ObjectPooler : MonoBehaviour
                 return;
             }
         }
-        Debug.LogWarning("Object not found in active list");
+
     }
 }
 [System.Serializable]
