@@ -9,6 +9,8 @@ public class HighScore : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _mainMenuHighScoreText;
     [SerializeField] private float _countingSpeed = 0.1f;
 
+    private const string HighScoreKey = "HighScore"; //used for PlayerPrefs
+
     private int _currentScore = 0;
     private bool _isCounting = false;
 
@@ -17,6 +19,9 @@ public class HighScore : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _highScore = PlayerPrefs.GetInt(HighScoreKey, 0);
+        UIUtils.UpdateText(_mainMenuHighScoreText, ("High Score: " + _highScore.ToString()));
+
         _currentScoreText.text = _currentScore.ToString();
         InvokeRepeating("Count", 0f, _countingSpeed);
     }
@@ -38,6 +43,7 @@ public class HighScore : MonoBehaviour
             _highScore = _currentScore;
             Debug.Log($"New high score: {_highScore}");
             UIUtils.UpdateText(_deathHighScoreText, ("New High Score: " + _highScore.ToString()));
+            SaveHighScore(_highScore);
         }
         else
         {
@@ -53,6 +59,13 @@ public class HighScore : MonoBehaviour
         _isCounting = true;
         _currentScore = 0;
         _currentScoreText.text = _currentScore.ToString();
+    }
+    public void SaveHighScore(int newScore)
+    {
+        _highScore = newScore;
+        PlayerPrefs.SetInt(HighScoreKey, _highScore);
+
+        PlayerPrefs.Save();
     }
 
 
