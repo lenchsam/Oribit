@@ -56,6 +56,7 @@ public class HighScore : MonoBehaviour
     //called on the play game event on game manager
     public void OnGameRestart()
     {
+        _currentScoreText.gameObject.SetActive(true);
         _isCounting = true;
         _currentScore = 0;
         _currentScoreText.text = _currentScore.ToString();
