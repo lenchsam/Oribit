@@ -186,7 +186,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Orbit Icon_0: 7617445688061776733
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
