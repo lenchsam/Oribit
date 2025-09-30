@@ -35,7 +35,7 @@ The code here is not too complex as that was not the purpose of this project, th
  - Visual Studio Code (or your preferred)
 
 ### Setup
- 1. Clone the repository. 
+ 1. Download the repository. 
  2. Open the project using Unity Hub.
  3. Navigate to the `Assets -> Scenes` folder and open the **SampleScene** scene.
  4. Experiment and explore the project!
