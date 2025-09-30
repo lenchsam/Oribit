@@ -13,10 +13,11 @@ Hi! This project is a mobile game calle orbit focusing on fast reflexes to survi
   * [Future Features](#potential-future-features)
 - [Contact](#contact)
 
+<img src="https://github.com/user-attachments/assets/f9325070-beb4-458f-a657-9e5ce5405f74" height="500" width="200"/>
+
 ## Useful Links
 - [Object Pooler](https://github.com/lenchsam/Oribit/blob/main/Oribit/Assets/Scripts/ObjectPooler.cs)
 
-<img src="https://github.com/user-attachments/assets/f9325070-beb4-458f-a657-9e5ce5405f74" height="500" width="200"/>
 
 ## Features
 
