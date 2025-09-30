@@ -22,6 +22,7 @@ Hi! This project is a mobile game calle orbit focusing on fast reflexes to survi
 
  - Object spawner
  - Object pooler
+ - High score saving
  - Rotating player movement
  - Mobile-based inputs
 
